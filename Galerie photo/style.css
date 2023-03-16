@@ -1,0 +1,25 @@
+/* Le code CSS définit l'apparence de la page */
+
+/* On met en forme la galerie de photos */
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .photo {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    position: relative;
+  }
+  
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* On affiche une bordure autour des photos sélectionnées */
+  .photo.selected {
+    border: 2px solid red;
+  }

@@ -1,0 +1,55 @@
+<!-- Le code HTML définit la structure de la page -->
+
+<!-- On inclut les fichiers CSS et JavaScript -->
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
+<!-- On crée une div contenant la galerie de photos -->
+<div id="gallery">
+  <!-- On affiche chaque photo dans une div -->
+  <div class="photo">
+    <img src="photo1.jpg" alt="Photo 1">
+  </div>
+  <div class="photo">
+    <img src="photo2.jpg" alt="Photo 2">
+  </div>
+  <!-- etc. -->
+</div>
+
+<!-- On crée un formulaire pour ajouter des photos -->
+<form id="add-form">
+  <input type="file" multiple>
+  <button type="submit">Ajouter</button>
+</form>
+
+<!-- On crée un bouton pour retirer les photos sélectionnées -->
+<button id="remove-button">Retirer</button>
+
+<script>
+  // Le code JavaScript rend la page interactive
+
+// On récupère les éléments de la page dont on a besoin
+const gallery = document.getElementById("gallery");
+const addForm = document.getElementById("add-form");
+const removeButton = document.getElementById("remove-button");
+
+// On ajoute un écouteur d'événement au formulaire pour ajouter des photos
+addForm.addEventListener("submit", event => {
+  // On empêche l'envoi du formulaire
+  event.preventDefault();
+
+  // On récupère les fichiers sélectionnés
+  const files = addForm.querySelector("input[type=file]").files;
+
+  // On parcourt les fichiers et on ajoute chaque photo à la galerie
+  for (const file of files) {
+    const photo = document.createElement("div");
+    photo.classList.add("photo");
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.alt = file.name;
+    photo.appendChild(img);
+    gallery.appendChild(photo);
+  }
+});
+</script>
