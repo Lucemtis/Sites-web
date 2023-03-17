@@ -1,50 +1,70 @@
+/* Dégradé de couleurs en fond */
 body {
-	background: linear-gradient(rgba(255, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1553837211-1b8d504bdfc0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGN5YmVycHVuaXRlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80');
-	background-repeat: no-repeat;
-	background-size: cover;
-	color: #fff;
-	font-family: 'Orbitron', sans-serif;
-	text-align: center;
+	background: linear-gradient(45deg, #1c1e26, #0c1a2a, #08182b, #001e2c);
   }
   
+  /* Police personnalisée pour les en-têtes */
   h1 {
+	font-family: 'Orbitron', sans-serif;
 	font-size: 4rem;
-	margin-top: 4rem;
-	text-shadow: 2px 2px 4px #000;
+	color: #fff;
+	text-align: center;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
   
+  /* Bouton animé pour générer une phrase */
   button {
-	background-color: rgba(255, 255, 255, 0.1);
-	border: 2px solid #fff;
-	border-radius: 10px;
+	background: #c80000;
 	color: #fff;
-	cursor: pointer;
-	font-size: 2rem;
-	margin-top: 2rem;
+	border: none;
+	border-radius: 2rem;
 	padding: 1rem 2rem;
-	text-shadow: 1px 1px 2px #000;
-	transition: all 0.3s ease-in-out;
+	font-size: 2rem;
+	margin: 2rem auto;
+	display: block;
+	cursor: pointer;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+	transition: all 0.2s ease-in-out;
   }
   
   button:hover {
-	background-color: rgba(255, 255, 255, 0.3);
-	color: #000;
+	transform: translateY(-0.2rem);
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
   }
   
+  /* Texte généré avec animation de défilement */
   #phrase {
 	font-size: 3rem;
-	margin-top: 4rem;
-	text-shadow: 2px 2px 4px #000;
-  }
-  
-  #timer {
-	background-color: rgba(0, 0, 0, 0.8);
-	border-radius: 10px;
 	color: #fff;
-	display: none;
-	font-size: 2rem;
-	margin-top: 2rem;
-	padding: 1rem 2rem;
-	text-shadow: 1px 1px 2px #000;
+	text-align: center;
+	margin: 2rem auto;
+	white-space: nowrap;
+	overflow: hidden;
+	animation: defilement 10s linear infinite;
   }
   
+  @keyframes defilement {
+	0% {
+	  transform: translateX(100%);
+	}
+	100% {
+	  transform: translateX(-100%);
+	}
+  }
+  
+  /* Néon pour le texte de pied de page */
+  footer p {
+	color: #fff;
+	font-size: 1.5rem;
+	text-align: center;
+	text-shadow: 0 0 1rem #fff, 0 0 3rem #fff, 0 0 5rem #ff00de, 0 0 7rem #ff00de, 0 0 10rem #ff00de;
+	position: relative;
+  }
+  
+  footer p::before {
+	content: attr(data-text);
+	position: absolute;
+	left: -0.125rem;
+	text-shadow: none;
+	color: #ff00de;
+  }
